@@ -13,7 +13,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["chrome-extension://dafockjdmflndfkpikgagocddepdjmnj", "https://happy-mails.onrender.com"],
+    allow_origins=["https://mail.google.com","chrome-extension://iamhflallddgcoipgmihmogjfjheldpi", "https://happy-mails.onrender.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
