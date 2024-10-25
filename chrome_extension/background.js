@@ -1,7 +1,7 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   try {
     if (message.action === 'checkEmail') {
-      fetch('http://localhost:8000/process_email/', {
+      fetch('https://happy-mails.onrender.com/process_email/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     } 
     else if (message.action === 'improveEmail') {
       // Improve the email content using your FastAPI backend
-      fetch('http://localhost:8000/improve_email/', {
+      fetch('https://happy-mails.onrender.com/improve_email/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
