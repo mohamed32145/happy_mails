@@ -1,0 +1,33 @@
+<<<<<<< HEAD
+{
+  "name": "my-chrome-extension",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "openai": "^4.56.0"
+  }
+}
+=======
+{
+  "name": "my-chrome-extension",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "openai": "^4.56.0"
+  }
+}
+>>>>>>> 188955d84f04299b8ea8c8f0cd506fe2d5bdd3b0

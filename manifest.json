@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Gmail Enhancer",
+  "version": "1.0",
+  "description": "Improves the emails in Gmail",
+  "permissions": ["tabs","storage", "activeTab", "scripting"],
+  "host_permissions": ["https://mail.google.com/*", "https://api.openai.com/*","http://localhost/*","http://127.0.0.1/*"],
+  "background": {
+    "service_worker": "chrome_extension/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["chrome_extension/content.js"],
+      "type": "module"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  }
+}
