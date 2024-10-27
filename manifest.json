@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "Improves the emails in Gmail",
   "permissions": ["tabs","storage", "activeTab", "scripting"],
-  "host_permissions": ["https://mail.google.com/*", "https://api.openai.com/*","http://localhost/*","http://127.0.0.1/*"],
+  "host_permissions": ["https://mail.google.com/*", "https://api.openai.com/*","https://happy-mails.onrender.com/*"],
   "background": {
     "service_worker": "chrome_extension/background.js",
     "type": "module"
