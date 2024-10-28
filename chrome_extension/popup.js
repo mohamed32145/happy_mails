@@ -1,4 +1,3 @@
-
 // Automatically trigger when the popup is opened
 window.addEventListener('load', async () => {
     try {
@@ -9,11 +8,12 @@ window.addEventListener('load', async () => {
                 target: { tabId: tab.id },
                 files: ['chrome_extension/content.js']
             });
-
-            // No need to send messages here, as content.js handles everything in real-time
+            
+            // Display a brief message in the popup to inform the user
+            document.getElementById('status').innerText = 'Email Assistant is active. Check your email for suggestions.';
         }
     } catch (error) {
         console.error('Error:', error);
-        document.getElementById('status').innerText = 'An error occurred.';
+        document.getElementById('status').innerText = 'An error occurred. Please try again.';
     }
 });
