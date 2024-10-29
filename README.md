@@ -1,22 +1,3 @@
 # gmail-extesnion-
 
-+-----------------+
-|      User       |
-+-----------------+
-        |
-        |  1. Check Email Content
-        |---------------------------+
-        |                           |
-        v                           v
-+-----------------+        +---------------------+
-| Gmail System    |        | OpenAI API          |
-+-----------------+        +---------------------+
-        |                           |
-        |  2. Improve Email Content |
-        |---------------------------+
-        |
-        v
-+-----------------+
-| Replace Email   |
-| Content         |
-+-----------------+
+![image](https://github.com/user-attachments/assets/d5ea5e53-e0e5-4c5a-9962-62cd6da836f5)
