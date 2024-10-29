@@ -9,15 +9,17 @@ from dotenv import load_dotenv
 import os
 import requests
 
+# Load environment variables
+load_dotenv()
+
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://mail.google.com","chrome-extension://*", "https://happy-mails.onrender.com"],
+    allow_origins=["https://mail.google.com", "chrome-extension://*",  "https://happy-mails.onrender.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    
 )
 
 model_path = 'backend/app/data/email_classifier_model.h5'
@@ -30,19 +32,21 @@ with open('backend/app/data/tokenizer.pkl', 'rb') as f:
 # Define the request structure
 class EmailContent(BaseModel):
     email_text: str
+    tone: str = "formal"  # Default to "formal" if no tone is provided
 
-# Function to call OpenAI API
-def improve_email_with_openai(email_text: str):
-    api_key = os.getenv("OPENAI_API_KEY")  # Make sure this is set in your environment variables
+# Function to call OpenAI API with tone
+def improve_email_with_openai(email_text: str, tone: str):
+    api_key = os.getenv("OPENAI_API_KEY")
     headers = {
         'Content-Type': 'application/json',
         'Authorization': f'Bearer {api_key}',
     }
+    prompt = f"Please rewrite this email to sound {tone}:\n\n{email_text}"
     payload = {
         'model': 'gpt-3.5-turbo',
         'messages': [
             {'role': 'system', 'content': 'You are an assistant that improves email content.'},
-            {'role': 'user', 'content': f'Improve the following email content:\n\n{email_text}'},
+            {'role': 'user', 'content': prompt},
         ],
         'max_tokens': 300,
     }
@@ -72,10 +76,10 @@ def process_email(email: EmailContent):
     decision = should_improve_email(email.email_text)
     return {"improve": decision}
 
-# Route to improve the email using OpenAI
+# Route to improve the email with tone using OpenAI
 @app.post("/improve_email/")
 def improve_email(email: EmailContent):
-    improved_content = improve_email_with_openai(email.email_text)
+    improved_content = improve_email_with_openai(email.email_text, email.tone)
     return {"improved_content": improved_content}
 
 if __name__ == "__main__":
