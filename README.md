@@ -1,8 +1,6 @@
 # gmail-extesnion-
 
-Here’s a suggested README section for your GitHub repository regarding the "Gmail Enhancer" project:
 
----
 
 # Gmail Enhancer
 
