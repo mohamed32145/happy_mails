@@ -11,12 +11,17 @@
 
     // Modal HTML for asking to formalize the email
     const modalHTML = `
-    <div id="formalize-modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background-color:white; padding:20px; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3); z-index:1000; width: 300px; max-width: 90%; text-align: center;">
-        <h3>Would you like to formalize your email?</h3>
-        <button id="modal-yes" style="margin-right:10px; padding:5px 10px; background-color:#28a745; color:white; border:none; border-radius:5px;">Yes</button>
-        <button id="modal-no" style="padding:5px 10px; background-color:#dc3545; color:white; border:none; border-radius:5px;">No</button>
-    </div>
-    <div id="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:999;"></div>
+   <div id="formalize-modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background-color:white; padding:20px; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3); z-index:1000; width: 300px; max-width: 90%; text-align: center;">
+       <h3>Would you like to formalize your email?</h3>
+       <select id="tone-selector" style="margin-bottom: 10px;">
+           <option value="polite">Polite</option>
+           <option value="formal">Formal</option>
+           <option value="enthusiastic">Enthusiastic</option>
+       </select>
+       <button id="modal-yes" style="margin-right:10px; padding:5px 10px; background-color:#28a745; color:white; border:none; border-radius:5px;">Yes</button>
+       <button id="modal-no" style="padding:5px 10px; background-color:#dc3545; color:white; border:none; border-radius:5px;">No</button>
+   </div>
+   <div id="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:999;"></div>
 `;
 
     // Append modal HTML to the document body
@@ -39,8 +44,9 @@
 
     // Modal button event listeners
     modalYesButton.addEventListener('click', () => {
+        const tone = document.getElementById('tone-selector').value;
         if (chrome.runtime && chrome.runtime.id) {
-            chrome.runtime.sendMessage({ action: 'improveEmail', content: emailContent });
+            chrome.runtime.sendMessage({ action: 'improveEmail', content: emailContent, tone });
             hideModal();
         } else {
             console.error("Extension context invalidated on modal confirmation.");

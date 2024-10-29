@@ -1,8 +1,8 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   try {
       if (message.action === 'checkEmail') {
-          fetch('https://happy-mails.onrender.com/process_email/', {
-              method: 'POST',
+          fetch('https://happy-mails.onrender.com/process_email/', {       //https://happy-mails.onrender.com/process_email/'
+              method: 'POST',  
               headers: {
                   'Content-Type': 'application/json',
               },
@@ -20,12 +20,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           return true; // Keep the channel open for async response
       } 
       if (message.action === 'improveEmail') {
-        fetch('https://happy-mails.onrender.com/improve_email/', {
+        fetch('https://happy-mails.onrender.com/improve_email/', {   //'<https://happy-mails.onrender.com/improve_email/>'
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ email_text: message.content }),
+            body: JSON.stringify({ email_text: message.content, tone: message.tone }),
         })
         .then(response => response.json())
         .then(data => {
@@ -46,6 +46,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     
         return true; // Required to use sendResponse asynchronously
     }
+    
+
     
   } catch (error) {
       console.error('Error handling message:', error);
