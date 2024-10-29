@@ -14,6 +14,9 @@
 - **AI-Powered Suggestions**: Leverage the OpenAI API to receive contextually relevant suggestions.
 - **Seamless Integration**: Directly works within the Gmail interface for an intuitive user experience.
 
+![image](https://github.com/user-attachments/assets/d5ea5e53-e0e5-4c5a-9962-62cd6da836f5)
+
+
 ## Technologies Used
 
 - **Frontend**: JavaScript, HTML, CSS
@@ -61,4 +64,4 @@ Feel free to adjust any sections or add more details specific to your project as
 
 
 
-![image](https://github.com/user-attachments/assets/d5ea5e53-e0e5-4c5a-9962-62cd6da836f5)
+
