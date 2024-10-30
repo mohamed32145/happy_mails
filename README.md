@@ -57,9 +57,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 mohamdsliman41@gmail.com
 
----
 
-Feel free to adjust any sections or add more details specific to your project as needed!
 
 
 
