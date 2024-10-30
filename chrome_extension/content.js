@@ -105,14 +105,17 @@
                 if (response && response.shouldImprove && emailBodyElement) {
                     if (!document.getElementById('suggestion-icon')) {
                         const suggestionIcon = document.createElement('span');
-                        suggestionIcon.id = 'suggestion-icon'; 
-                        suggestionIcon.innerHTML = '✍️'; 
-                        suggestionIcon.title = 'Click to enhance your email';
+                        suggestionIcon.id = 'suggestion-icon';
+                        suggestionIcon.innerHTML = '📝'; 
+                        suggestionIcon.title = 'Click to improve your email';
                         suggestionIcon.style.cursor = 'pointer';
                         suggestionIcon.style.fontSize = '1.8em'; 
                         suggestionIcon.style.marginLeft = '10px';
-                        suggestionIcon.style.color = '#ff8c00'; 
-                        suggestionIcon.style.textShadow = '2px 2px 5px rgba(0, 0, 0, 0.3)'; 
+                        suggestionIcon.style.color = '#FFD700'; 
+                        suggestionIcon.style.backgroundColor = '#FFD700'; 
+                        suggestionIcon.style.padding = '4.5px'; 
+                        suggestionIcon.style.borderRadius = '50%'; 
+                        suggestionIcon.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
                         suggestionIcon.onclick = showModal;
                         emailBodyElement.appendChild(suggestionIcon);
                     }
