@@ -113,7 +113,7 @@
                         suggestionIcon.style.marginLeft = '10px';
                         suggestionIcon.style.color = '#FFD700'; 
                         suggestionIcon.style.backgroundColor = '#FFD700'; 
-                        suggestionIcon.style.padding = '4.5px'; 
+                        suggestionIcon.style.padding = '4px'; 
                         suggestionIcon.style.borderRadius = '50%'; 
                         suggestionIcon.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
                         suggestionIcon.onclick = showModal;
